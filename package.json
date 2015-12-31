@@ -1,0 +1,30 @@
+{
+  "name": "lark",
+  "version": "0.0.1",
+  "description": "FE Lark!",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Manjiz/lark.git"
+  },
+  "keywords": [
+    "Electron",
+    "lark",
+    "fe"
+  ],
+  "author": "Manjiz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Manjiz/lark/issues"
+  },
+  "homepage": "https://github.com/Manjiz/lark#readme",
+  "devDependencies": {
+    "electron-prebuilt": "^0.35.0"
+  },
+  "dependencies": {
+    "spritesmith": "^3.0.0"
+  }
+}
