@@ -44,6 +44,14 @@ body {padding:10px;}
     <div class="base64info"></div>
 </div>
 
+<div class="ui page dimmer">
+    <div class="content">
+        <div class="center">
+            <h4 class="ui inverted icon header"><i class="heart icon"></i>Base64 数据已复制到剪切板</h4>
+        </div>
+    </div>
+</div>
+
 <!-- process.versions.node -->
 <!-- process.versions.chrome -->
 <!-- process.versions.electron -->
@@ -110,7 +118,7 @@ angular.module('sirius', [
                     .append('<img src="'+base64data+'" style="display:block;margin:10px 0;width:20px;height:20px;">')
                     .append('<div style="word-wrap:nowrap;overflow-x:auto;background:#ddd;">'+base64data+'</div>')
                     .append('<div>数据长度：'+base64data.length+'</div>');
-                alert('Base64 数据已复制到剪切板');
+                jQuery('body').dimmer('show');
             }
         }
     };
