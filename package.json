@@ -2,7 +2,7 @@
   "name": "larks",
   "version": "0.0.1",
   "engines": {
-    "node" : ">=5.8.0"
+    "node" : ">=6.0.0"
   },
   "description": "FE Lark!",
   "main": "larks.js",
