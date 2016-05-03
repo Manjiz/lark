@@ -1,10 +1,40 @@
 ;(function() {
 	'use strict';
 
-	var fs = require('fs'),
-		Spritesmith = require('spritesmith');
+	const 
+		fs = require('fs'),
+		Path = require('path'),
+		Spritesmith = require('spritesmith'),
 
-	var root = this;
+		root = this;
+
+	// 换行JSON
+	const wrapJSON = str => {
+		let addedStr = '';
+		let space = 0;
+		for(let c of str) {
+			if(c==='{') {
+				addedStr += (c+'\r\n');
+				space += 2;
+				addedStr += ' '.repeat(space);
+			} else if(c==='}') {
+				addedStr += '\r\n';
+				space -= 2;
+				addedStr += ' '.repeat(space);
+				addedStr += c;
+			} else if(c===',') {
+				if(space===6) {	// 都放一行吧
+					addedStr += ', ';
+				} else {
+					addedStr += (c+'\r\n');
+					addedStr += ' '.repeat(space);
+				}
+			} else {
+				addedStr += c;
+			}
+		}
+		return addedStr.replace(/\\\\/g, '/');
+	}
 
 	var conf = function() {
 		return {
@@ -35,7 +65,7 @@
 							}
 						};
 					walk();
-					
+
 					var spritesmith = new Spritesmith();
 					spritesmith.createImages(fileList, function handleImages (err, images) {
 						if(err) throw err;
@@ -44,11 +74,20 @@
 						});
 					  	var result = spritesmith.processImages(images);
 					  	result.image.pipe(fs.createWriteStream(output));
+
+					  	let newObj = {};
+					  	for(let key of Object.keys(result.coordinates)) {
+					  		let sourceObj = {};
+					  		sourceObj[Path.relative(dir, key)] = result.coordinates[key]
+					  		Object.assign(newObj, sourceObj);
+					  	}
+
+					  	result.properties.cssText = `background:url(${Path.relative(dir, output)});background-size:${result.properties.width}px;`;
 					  	var json = {
-					  		properties: result.properties,
-					  		coordinates: result.coordinates
+					  		ruler: result.properties,
+					  		coord: newObj
 					  	};
-					  	json = JSON.stringify(json);
+					  	json = wrapJSON(JSON.stringify(json));
 					  	fs.writeFileSync(output+'.json', json);
 					});
 				}
