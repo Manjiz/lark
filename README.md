@@ -25,7 +25,7 @@ larks sp
 - --size, -s 限制面积
 - --width, -w 限制宽度<100>，默认值时面积优先
 - --height, -h 限制高度<100>，默认值时面积优先
-- --name, -n 输出名称<spoutput>
+- --output, -o 输出名称，默认spoutput
 
 将得到一张雪碧图以及一个JSON的坐标描述文件，如下：
 

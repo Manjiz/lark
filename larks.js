@@ -18,7 +18,7 @@ Commander
 	.option('-s, --size <value>', '限制面积 | Max Size')
 	.option('-w, --width <value>', '限制宽度<100>，默认值时面积优先 | Max Width<100>. Size Priority When Default')
 	.option('-h, --height <value>', '限制高度<100>，默认值时面积优先 | Max Height<100>. Size Priority When Default')
-	.option('-n, --name <value>', '输出名称<spoutput> | Output Name<spoutput>')
+	.option('-o, --output <value>', '输出名称<spoutput> | Output Name<spoutput>')
 	.action(function(options) {
 		let path = process.cwd();
 		if(options.folder) {
@@ -26,7 +26,7 @@ Commander
 		}
 		Sprite.bypath({
 			path: path, 
-			outputName: options.name, 
+			outputName: options.output, 
 			isDeep: !!options.deep, 
 			isAll: !!options.all,
 			maxSize: options.size,

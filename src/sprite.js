@@ -81,6 +81,8 @@
 					});
 
 				  	let result = spritesmith.processImages(images);
+				  	
+				  	// 这里是追加数据到图片
 				  	result.image.pipe(fs.createWriteStream(outputImg));
 
 					let newObj = {};
