@@ -1,6 +1,6 @@
 {
   "name": "larks",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "node" : ">=6.0.0"
   },
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Manjiz/larks.git"
+    "url": "git+git@github.com:Manjiz/larks.git"
   },
   "keywords": [
     "larks",
