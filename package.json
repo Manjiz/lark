@@ -18,6 +18,9 @@
     "fe"
   ],
   "author": "Manjiz",
+  "bin": {
+    "larks": "bin/larks.js"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Manjiz/larks/issues"

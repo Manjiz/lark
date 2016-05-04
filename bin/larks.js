@@ -1,10 +1,12 @@
+#! /usr/bin/env node --harmony
+
 'use strict';
 
 const 
 	Path = require('path'),
 	Commander = require('commander'),
 
-	Sprite = require('./src/sprite');
+	Sprite = require('../lib/sprite');
 
 Commander.version('0.0.1');
 
