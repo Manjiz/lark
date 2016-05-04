@@ -30,6 +30,8 @@ larks sp -f test -d
 - --size, -s 限制面积
 - --width, -w 限制宽度<100>，默认值时面积优先
 - --height, -h 限制高度<100>，默认值时面积优先
+- --padding, -p 间距
+- --algo 算法：top-down | left-right | diagonal | alt-diagonal | binary-tree，详见[这里](https://github.com/Ensighten/spritesmith#algorithms)
 - --output, -o 输出名称，默认spoutput
 
 将得到一张雪碧图以及一个JSON的坐标描述文件，如下：
