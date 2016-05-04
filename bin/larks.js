@@ -20,6 +20,8 @@ Commander
 	.option('-s, --size <value>', '限制面积 | Max Size')
 	.option('-w, --width <value>', '限制宽度<100>，默认值时面积优先 | Max Width<100>. Size Priority When Default')
 	.option('-h, --height <value>', '限制高度<100>，默认值时面积优先 | Max Height<100>. Size Priority When Default')
+	.option('-p, --padding <number>', '间距，默认0')
+	.option('--algo <value>', '算法：top-down | left-right | diagonal | alt-diagonal | binary-tree')
 	.option('-o, --output <value>', '输出名称<spoutput> | Output Name<spoutput>')
 	.action(function(options) {
 		let path = process.cwd();
@@ -33,6 +35,8 @@ Commander
 			isAll: !!options.all,
 			maxSize: options.size,
 			maxWidth: options.width, 
+			padding: Number.parseInt(options.padding),
+			algorithm: options.algo,
 			maxHeight: options.height
 		});
 	});
