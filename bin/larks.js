@@ -3,15 +3,14 @@
 'use strict';
 
 const 
-	fs = require('fs'),
 	Path = require('path'),
 	Commander = require('commander'),
-	NCP = require("copy-paste"),
 	Colors = require('colors'),
 
-	Sprite = require('../lib/sprite');
+	Sprite = require('../lib/sprite'),
+	Base64 = require('../lib/base64');
 
-Commander.version('0.0.5');
+Commander.version('0.0.6');
 
 Commander
 	.command('sprite')
@@ -49,16 +48,12 @@ Commander
 	.alias('b64')
 	.description('图转Base64数据 | Convert Image to Base64 Data')
 	.option('-f, --file <file>', '选择文件 | Select File')
+	.option('-i, --index <index>', '第几个文件（按文件名排序），默认0')
 	.action(function(options) {
-		if(options.file) {
-			let type = options.file.match(/\.([^\.]+)$/);
-			type = type ? type[1] : '';
-			let data = fs.readFileSync(options.file, {encoding:'base64'});
-			let base64data = 'data:image/'+type+';base64,'+ data;
-			NCP.copy(base64data, function () {
-	  			console.log(Colors.green('Base64 数据已复制到剪切板'));
-			});
-		}
+		Base64.convert({
+			file: options.file, 
+			index: options.index
+		});
 	});
 
 Commander.parse(process.argv);
