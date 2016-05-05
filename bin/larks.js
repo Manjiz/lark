@@ -11,7 +11,7 @@ const
 
 	Sprite = require('../lib/sprite');
 
-Commander.version('0.0.4');
+Commander.version('0.0.5');
 
 Commander
 	.command('sprite')
