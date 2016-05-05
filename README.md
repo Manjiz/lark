@@ -5,7 +5,7 @@ Larks!
 
 前端小工具。
 
-运行环境：Node.js [>=6.0.0]
+运行环境：Node.js [>=6.0.0]，不稳定支持其他版本
 
 **安装**
 
@@ -13,18 +13,23 @@ Larks!
 node install -g larks
 ```
 
-## 雪碧图 ##
-
-使用：
+**使用**
 
 ``` bash
-larks sp [参数]
+larks [命令] [参数]
+
+# 对于低版本nodeJS用户，我已经用babel转好了，但不保证一定能用
+larks-es5 [命令] [参数]
+```
+
+### 雪碧图 ###
+
+``` bash
+# 支持简写 sp
+larks sprite [参数]
 
 # 示例
 larks sp -f test -d
-
-# 对于低版本nodeJS用户，我已经用babel转好了，但不保证一定能用
-larks-es5 sp [参数]
 ```
 
 参数：
@@ -58,3 +63,19 @@ larks-es5 sp [参数]
   }
 }
 ```
+
+### Base64 ###
+
+``` bash
+# 支持简写b64
+larks base64 [参数]
+
+# 示例
+larks b64 -f home.png
+```
+
+参数：
+
+- -f, --file 指定文件
+
+转换后 Base64 数据将会复制到剪切板中。
