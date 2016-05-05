@@ -1,9 +1,11 @@
 Larks!
 ------
 
+[![npm version](https://badge.fury.io/js/larks.svg)](https://badge.fury.io/js/larks)
+
 前端小工具。
 
-运行环境：Node.js (>=6.0.0)[必须]，由于用到了大量的ES6新特性，比如6.0.0才支持的函数参数默认值
+运行环境：Node.js [>=6.0.0]
 
 **安装**
 
@@ -18,8 +20,11 @@ node install -g larks
 ``` bash
 larks sp [参数]
 
-## 示例
+# 示例
 larks sp -f test -d
+
+# 对于低版本nodeJS用户，我已经用babel转好了，但不保证一定能用
+larks-es5 sp [参数]
 ```
 
 参数：
